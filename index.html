@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffe Challenge</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/nga.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+  <body ng-controller="controller as ctrl">
+    <div class="container">
+      <div class="page-header">
+        <h1>Coffe Challenge</h1>
+        <p class="lead">Basic app to generate a weekly coffe list.</p>
+      </div>
+
+      <div class="panel panel-default panel-coffe nga-fast nga-stagger nga-collapse" ng-if="ctrl.show_list">
+        <table class="table table-bordered coffe-list">
+          <thead>
+            <tr>
+              <th width="10%"></th>
+              <th width="15%" ng-repeat="weekday in ctrl.weekdays">{{weekday}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="10%" align="left">am</td>
+              <td width="15%" ng-repeat="user in ctrl.list[0] track by $index">{{user}}</td>
+            </tr>
+            <tr>
+              <td width="10%" align="left">pm</td>
+              <td width="15%" ng-repeat="user in ctrl.list[1] track by $index">{{user}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4">
+          <form class="form form-user" ng-submit="ctrl.addUser()">
+            <div class="form-group" ng-class="{ 'has-error': ctrl.invalid_user }">
+              <div class="input-group">
+                <input type="text" class="form-control" ng-model="ctrl.user" ng-change="ctrl.validateUser()" placeholder="User" autofocus>
+                <div class="input-group-addon" ng-click="ctrl.addUser()">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </div>
+              </div>
+            </div>
+          </form>
+          <button ng-if="ctrl.users.length > 0" type="button" class="btn btn-primary btn-lg btn-block btn-generate-list nga-default nga-stagger nga-fade" ng-click="ctrl.generateList()">Generate list</button>
+        </div>
+        <div class="col-md-8">
+          <div class="well">
+            <span ng-if="ctrl.users.length == 0"><em>Add users</em></span>
+            <button ng-repeat="user in ctrl.users track by $index" class="btn btn-default btn-user" type="button">
+              {{user}} <span class="glyphicon glyphicon-remove" ng-click="ctrl.deleteUser(user)"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

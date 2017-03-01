@@ -1,0 +1,14 @@
+{
+  "name": "coffe-list",
+  "version": "1.0.0",
+  "description": "Basic app to generate a weekly coffe list.",
+  "main": "app.js",
+  "authors": [
+    "Pedro Kayser <pedrokayser00@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "bower": "^1.8.0",
+  }
+}

@@ -1,0 +1,22 @@
+.no-padding { padding: 0px !important; }
+
+.form-user input { padding: 30px; font-size: 20px; }
+.form-user .input-group-addon {
+	padding: 0px 20px 0px 20px;
+	background-color: #5CB85C;
+	border: 1px solid #5CB85C;
+	font-size: 20px;
+	color: #FFF;
+	cursor: pointer;
+}
+
+.btn-user { margin: 3px; }
+
+.btn-generate-list { margin-bottom: 10px !important; padding: 20px !important; }
+
+.panel-coffe { max-height: 500px; padding: 0px; }
+
+.coffe-list thead tr { background-color: #F5F5F5; border-bottom: 2px solid #DDD; }
+.coffe-list thead tr th { text-align: center; }
+.coffe-list tbody tr td { text-align: center; padding: 25px !important; }
+.coffe-list tbody tr td:first-child { font-weight: bold; }
